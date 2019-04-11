@@ -1,0 +1,35 @@
+{
+  "name": "click-processor",
+  "version": "1.0.0",
+  "description": "A Scratch/Snap! influenced block programming language abstracting Stationeers MIPS. ",
+  "main": "lib/Processor.js",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "mocha": "mocha --recursive",
+    "test": "npm run lint && npm run mocha",
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stationeering/click.git"
+  },
+  "author": "Melair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stationeering/click/issues"
+  },
+  "homepage": "https://github.com/stationeering/click/processor#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.5.0",
+    "mocha": "^5.2.0"
+  }
+}
