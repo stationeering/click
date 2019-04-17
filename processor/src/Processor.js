@@ -1,11 +1,13 @@
 "use strct";
 
+const LoopInstructions = require("./instructions/Loop.js");
 const MiscInstructions = require("./instructions/Misc.js");
 
 module.exports = class Processor {
   constructor() {
     this._typeRegistry = {};    
 
+    LoopInstructions(this);
     MiscInstructions(this);
   }
 

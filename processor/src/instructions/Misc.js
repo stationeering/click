@@ -5,5 +5,5 @@ module.exports = function (processor) {
 /* eslint no-unused-vars: 0 */ 
 
 function _instruction_yield(instruction) {
-  return [ "YIELD" ];
+  return [ "yield" ];
 }

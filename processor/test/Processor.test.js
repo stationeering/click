@@ -1,4 +1,3 @@
-
 "use strict";
 
 const expect = require("chai").expect;
@@ -20,14 +19,14 @@ describe("Procesor Tests", function () {
       let processor = new Processor();
 
       let actualResult = processor.convertToMIPS({"instructions": [ { "type": "yield" } ]});
-      expect(actualResult).to.deep.equal([ "YIELD" ]);
+      expect(actualResult).to.deep.equal([ "yield" ]);
     });
 
     it("from two instructions returns two lines with the MIPS instructions", function() {
       let processor = new Processor();
   
       let actualResult = processor.convertToMIPS({"instructions": [ { "type": "yield" }, { "type": "yield" } ]});
-      expect(actualResult).to.deep.equal([ "YIELD", "YIELD" ]);
+      expect(actualResult).to.deep.equal([ "yield", "yield" ]);
     });  
   });
 });
