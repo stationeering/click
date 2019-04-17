@@ -1,8 +1,12 @@
 "use strct";
 
+const MiscInstructions = require("./instructions/Misc.js");
+
 module.exports = class Processor {
   constructor() {
     this._typeRegistry = {};    
+
+    MiscInstructions(this);
   }
 
   convertToMIPS(clickProgram) {
@@ -11,7 +15,17 @@ module.exports = class Processor {
     return this._parseInstructionBlock(clickProgram.instructions);
   }
 
-  _parseInstructionBlock() {
-    return "";
+  _parseInstructionBlock(instructions) {
+    return instructions.reduce((acc, instruction) => acc.concat(this._callInstruction(instruction)), []);
+  }
+
+  _callInstruction(instruction) {
+    let func = this._typeRegistry[instruction.type];
+    return func(instruction);
+  }
+
+  _registerInstruction(name, func) {
+    func = func.bind(this);
+    this._typeRegistry[name] = func;
   }
 };
